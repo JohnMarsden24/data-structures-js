@@ -4,59 +4,6 @@
  * Brute force approach would be 0(n * m) as  c
  */
 
-// const createTemplate = (str) => {
-//   // Create pointers
-//   let leftPointer = 0;
-//   let rightPointer = 1;
-
-//   // Create template array with initial 0
-//   let template = [0];
-
-//   // Needs to be a while loop as if there is a mismatch and leftPointer isn't 0 we move it
-//   // decrement it and recheck comparassion
-//   while (rightPointer < str.length) {
-//     if (str[rightPointer] === str[leftPointer]) {
-//       template.push(leftPointer + 1);
-//       leftPointer++;
-//       rightPointer++;
-//       // There hasn't been a match but leftPointer isn't 0 so we reassign it to the previous value
-//     } else if (leftPointer !== 0) {
-//       leftPointer = template[leftPointer - 1];
-//     } else {
-//       template.push(0);
-//       rightPointer++;
-//     }
-//   }
-//   return template;
-// };
-
-// const kmpSearch = (str, match) => {
-//   let strPointer = 0;
-//   let matchPointer = 0;
-//   let counter = 0;
-
-//   const template = createTemplate(match);
-
-//   while (strPointer < str.length) {
-//     if (str[strPointer] === match[matchPointer]) {
-//       // We've found a match.
-//       if (matchPointer === match.length - 1) {
-//         counter++;
-//       }
-//       matchPointer++;
-//       strPointer++;
-//     } else if (matchPointer > 0) {
-//       matchPointer = template[matchPointer - 1];
-//     } else {
-//       matchPointer = 0;
-//       strPointer++;
-//     }
-//   }
-
-//   return counter ? counter : -1;
-// };
-// console.log(kmpSearch("abcadadadb", "adad"));
-
 const createTemplate = (str) => {
   // Create pointers
   let leftPointer = 0;
@@ -64,7 +11,8 @@ const createTemplate = (str) => {
   // Create template array
   let template = new Array(str.length).fill(0);
 
-  // Iterate through str
+  // Needs to be a while loop as if there is a mismatch and leftPointer isn't 0 we
+  // decrement it and recheck comparison
   while (rightPointer < str.length) {
     // If right pointer matches left pointer increment both and put the left pointer
     // index + 1 in that index of the array
@@ -73,6 +21,7 @@ const createTemplate = (str) => {
       leftPointer++;
       rightPointer++;
     } else if (leftPointer > 0) {
+      // There hasn't been a match but leftPointer isn't 0 so we reassign it to the previous value
       leftPointer = template[leftPointer - 1];
     } else {
       rightPointer++;
@@ -101,7 +50,7 @@ const kmpSearch = (str, match) => {
       }
       strPointer++;
       matchPointer++;
-      // If it isn't a match we can go try and reset match pointer to previos known prefix
+      // If it isn't a match we can go try and reset match pointer to previous known prefix index
     } else if (matchPointer > 0) {
       matchPointer = template[matchPointer - 1];
     } else {
@@ -111,4 +60,5 @@ const kmpSearch = (str, match) => {
   }
   return counter;
 };
-console.log(kmpSearch("abxabcabcaby", "abcaby"));
+
+console.log(kmpSearch("oooooo", "ooo"));
