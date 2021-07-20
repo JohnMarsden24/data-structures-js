@@ -4,7 +4,7 @@ const { sortTwoArrays } = require("./sortTwoArrays");
  * Time complexity
  *
  * Best   Average   Worse
- * O(n x n)   O(n x n)  O(n x n)
+ * O(n ^ 2)   O(n ^ 2)  O(n ^ 2)
  *
  * Space complexity
  * O(1)
@@ -34,6 +34,6 @@ const selectionSort = (arr) => {
 
 // console.log(selectionSort([5, 3, 1, 2, 6, 1]));
 
-console.log(sortTwoArrays([3, 5, 2, 6, -2, 20, 3], [9, 1, 2], selectionSort));
+// console.log(sortTwoArrays([3, 5, 2, 6, -2, 20, 3], [9, 1, 2], selectionSort));
 
-console.log(counter);
+// console.log(counter);
