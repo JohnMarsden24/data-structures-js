@@ -1,25 +1,25 @@
-/**
- * Merge sort works by recursively breaking down the array into individual arrays which are then
- * merged together and while being merged the values are put into a sorted order
- * This newly merged array is returned from the recursive call and repeated till the entire
- * array is sorted. So for example it would first merge and sort two arrays of 1 length into a single
- * array with a length of 2, it would then merge and sort two arrays of 2 length into a single array
- * with a length of 4, etc
- *
- * Time complexity
- *
- * Best         Average     Worse
- * O(n log n)   O(n log n)  O(n log n)
- *
- * log n because the amount of times we have to split the array grows in log 2 with the arrays length
- * e.g log 2 (8) = 3 explaination - 2 x 2 x 2 = 8
- * If we had an array of 32 elements we would have to split it 5 times to get it into individual elements
- *
- * O(n) because we are comparing each element in the array once, put the two together are hyou get O(n log n)
- *
- * Space complexity
- * O(n)
- */
+// /**
+//  * Merge sort works by recursively breaking down the array into individual arrays which are then
+//  * merged together and while being merged the values are put into a sorted order
+//  * This newly merged array is returned from the recursive call and repeated till the entire
+//  * array is sorted. So for example it would first merge and sort two arrays of 1 length into a single
+//  * array with a length of 2, it would then merge and sort two arrays of 2 length into a single array
+//  * with a length of 4, etc
+//  *
+//  * Time complexity
+//  *
+//  * Best         Average     Worse
+//  * O(n log n)   O(n log n)  O(n log n)
+//  *
+//  * log n because the amount of times we have to split the array grows in log 2 with the arrays length
+//  * e.g log 2 (8) = 3 explaination - 2 x 2 x 2 = 8
+//  * If we had an array of 32 elements we would have to split it 5 times to get it into individual elements
+//  *
+//  * O(n) because we are comparing each element in the array once, put the two together are hyou get O(n log n)
+//  *
+//  * Space complexity
+//  * O(n)
+//  */
 
 const merge = (arr1, arr2) => {
   // Create empty array which we return

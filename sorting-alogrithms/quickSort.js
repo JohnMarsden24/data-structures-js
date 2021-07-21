@@ -1,18 +1,18 @@
-/**
- * Quick sort works by choosing a random value in the array and then iterating through the array
- * and comparing each element against the chosen value. If it is less than the chosen value that element
- * gets put to the left of the chosen value and if it's greater it remains on the right of the chosen value
- * At the end of this iteration the chosen value is in its final position and then it is recursively called
- * on either side of the array
- * Time complexity
- *
- * Best         Average     Worse
- * O(n log n)   O(n log n)  O(n ^ 2)
- *
- *
- * Space complexity
- * O(log n)
- */
+// /**
+//  * Quick sort works by choosing a random value in the array and then iterating through the array
+//  * and comparing each element against the chosen value. If it is less than the chosen value that element
+//  * gets put to the left of the chosen value and if it's greater it remains on the right of the chosen value
+//  * At the end of this iteration the chosen value is in its final position and then it is recursively called
+//  * on either side of the array
+//  * Time complexity
+//  *
+//  * Best         Average     Worse
+//  * O(n log n)   O(n log n)  O(n ^ 2)
+//  *
+//  *
+//  * Space complexity
+//  * O(log n)
+//  */
 
 const pivot = (arr, start = 0, end = arr.length - 1) => {
   // We pick the first element in the array as our pivot and pivot index
