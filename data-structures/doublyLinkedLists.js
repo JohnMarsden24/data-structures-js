@@ -185,6 +185,45 @@ class DoublyLinkedList {
     // Return removed node
     return foundNode
   }
+
+  reverse(current = this.head) {
+    // Iterative solution
+    // We start from the head and move along
+    let current = this.head
+    for (let i = 0; i < this.length; i++) {
+      // We need to keep track of the currents next as we are about to overwrite it
+      let tempNext = current.next
+      // We switch the pointers around
+      current.next = current.prev
+      current.prev = tempNext
+      // Current becomes it's original next this is how we move along the list
+      current = tempNext
+    }
+    // We finally swap the head and tail around
+    let tempHead = this.head
+    this.head = this.tail
+    this.tail = tempHead
+
+    return this
+
+    // Recursive solution
+    // If no current is passed it means we reached the end of the list so we need to swap
+    // the head and tail around and then return the list
+    if (!current) {
+      let tempHead = this.head
+      this.head = this.tail
+      this.tail = tempHead
+      return this.head
+    }
+    // Else we need to keep track of the current nodes next as we are about to overwrite it
+    let tempNext = current.next
+    // Current nodes next becomes its previous
+    current.next = current.prev
+    // Current nodes prev becomes it's old next which is why we saved it in a variable
+    current.prev = tempNext
+    // We recursively call reverse with the original current nodes next
+    return this.reverse(tempNext)
+  }
 }
 
 const list = new DoublyLinkedList()
