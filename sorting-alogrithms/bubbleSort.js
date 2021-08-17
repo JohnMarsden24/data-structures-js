@@ -38,22 +38,25 @@ const bubbleSort = (arr) => {
   // Using a while loop with an ever decreasing inner loop size
   // as we do not need to iterate over already sorted elements
   let swapping = true;
-  let sortedLength = arr.length;
+  let sortedLength = arr.length - 1;
   while (swapping) {
     swapping = false;
 
     for (let i = 0; i < sortedLength; i++) {
+      counter++;
       if (arr[i] > arr[i + 1]) {
         [arr[i], arr[i + 1]] = [arr[i + 1], arr[i]];
         swapping = true;
       }
     }
-    sortedLength++;
+    sortedLength--;
   }
   return arr;
 };
 
 console.log(bubbleSort([6, 4, 5, 3, 2, 1]));
+
+console.log(counter);
 
 // console.log(sortTwoArrays([3, 5, 2, 6, -2, 20, 3], [9, 1, 2], bubbleSort));
 // console.log(bubbleSort([6, 4, 5, 3, 8, 1]));
